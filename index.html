@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="./index.html">
+          <img src="./Assets/Logo.png" alt="Portfolio Logo" />
+        </a>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="./error.html">Home</a></li>
+          <li><a href="./error.html">About</a></li>
+          <li><a href="./error.html">Skills</a></li>
+          <li><a href="./error.html">Projects</a></li>
+          <li><a href="./error.html">Services</a></li>
+          <li><a href="./error.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="icons">
+        <div class="login">
+          <a href="./error.html">
+            <i class="fa-regular fa-circle-user"></i>
+          </a>
+        </div>
+
+        <div class="mobilebar">
+          <div class="hamburger-box">
+            <div class="hamburger">
+              <div class="line line1"></div>
+              <div class="line line2"></div>
+              <div class="line line3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="./error.html">Home</a></li>
+        <li><a href="./error.html">About Me</a></li>
+        <li><a href="./error.html">My Skills</a></li>
+        <li><a href="./error.html">My Projects</a></li>
+        <li><a href="./error.html">Services</a></li>
+        <li><a href="./error.html">Contact Me</a></li>
+      </ul>
+
+      <div class="sidebar-login">
+        <a href="./error.html">
+          <button class="login-btn">Hire Me</button>
+        </a>
+
+        <a href="./error.html">
+          <button class="login-btn">Download Resume</button>
+        </a>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-container">
+          <!-- LEFT CONTENT -->
+          <div class="hero-content">
+            <span class="hero-tag" data-aos="fade-right" data-aos-delay="120"> Innovative • Scalable • Future-Ready </span>
+
+            <h1 class="hero-title" data-aos="fade-right" data-aos-delay="200">
+              Empowering Enterprises Through Intelligent Digital Solutions
+            </h1>
+
+            <p class="hero-sub" data-aos="fade-right" data-aos-delay="300">
+              We design high-performance digital systems that help businesses
+              optimize operations, enhance security, and accelerate sustainable
+              growth.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="./error.html" class="btn btn-primary" data-aos="zoom-in" data-aos-delay="100">Explore Services</a>
+              <a href="./error.html" class="btn btn-secondary" data-aos="zoom-in" data-aos-delay="150">View Portfolio</a>
+            </div>
+          </div>
+
+          <!-- RIGHT IMAGE -->
+          <div class="hero-image" data-aos="fade-left" data-aos-delay="100">
+            <img
+              src="./Assets/hero-img_11zon (1)_11zon.webp"
+              alt="Company Dashboard"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="Structure">
+      <div class="about">
+        <div class="about-container">
+          <!-- LEFT IMAGE -->
+          <div class="about-image" data-aos="fade-right" data-aos-delay="100">
+            <img src="./Assets/aboutus_11zon (1)_11zon.webp" alt="Our Team" />
+            <div class="experience-badge">
+              <h3>0+</h3>
+              <p>Years Experience</p>
+            </div>
+          </div>
+
+          <!-- RIGHT CONTENT -->
+          <div class="about-content">
+            <span class="about-tag" data-aos="fade-left" data-aos-delay="100">Who We Are</span>
+
+            <h2 data-aos="fade-left" data-aos-delay="200">
+              Delivering Intelligent Digital Solutions For Modern Enterprises
+            </h2>
+
+            <p data-aos="fade-left" data-aos-delay="300">
+              We help businesses transform digitally through scalable
+              architecture, secure cloud systems, and high-performance
+              platforms.
+            </p>
+
+            <p class="more-text">
+              Our expertise spans enterprise consulting, cloud engineering,
+              cybersecurity, and automation. We focus on innovation,
+              reliability, and long-term business value.
+            </p>
+
+            <button class="about-btn" data-aos="fade-left" data-aos-delay="400">Read More</button>
+
+            <!-- STATS -->
+            <div class="about-stats" data-aos="fade-left" data-aos-delay="100">
+              <div class="stat">
+                <h3 class="counter" data-target="1200">0</h3>
+                <p>Projects Completed</p>
+              </div>
+
+              <div class="stat">
+                <h3 class="counter" data-target="120">0</h3>
+                <p>Enterprise Clients</p>
+              </div>
+
+              <div class="stat">
+                <h3 class="counter" data-target="25">0</h3>
+                <p>Global Partners</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        /* ===============================
+   Counter Animation
+================================= */
+
+        const counters = document.querySelectorAll(".counter");
+        const aboutSection = document.querySelector(".about");
+
+        let started = false;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !started) {
+                started = true;
+                counters.forEach((counter) => {
+                  const target = +counter.getAttribute("data-target");
+                  let count = 0;
+                  const increment = target / 100;
+
+                  const update = () => {
+                    if (count < target) {
+                      count += increment;
+                      counter.innerText = Math.ceil(count);
+                      requestAnimationFrame(update);
+                    } else {
+                      counter.innerText = target + "+";
+                    }
+                  };
+
+                  update();
+                });
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+
+        observer.observe(aboutSection);
+
+        /* ===============================
+   Read More Toggle
+================================= */
+
+        const btn = document.querySelector(".about-btn");
+        const moreText = document.querySelector(".more-text");
+
+        btn.addEventListener("click", () => {
+          moreText.classList.toggle("show");
+
+          btn.innerText = moreText.classList.contains("show")
+            ? "Read Less"
+            : "Read More";
+        });
+
+        /* ===============================
+   Dynamic Experience Years
+================================= */
+
+        const badge = document.querySelector(".experience-badge h3");
+        const startYear = 2014; // change this
+        const currentYear = new Date().getFullYear();
+        badge.innerText = currentYear - startYear + "+";
+      </script>
+
+      <!-- ================= SERVICES ================= -->
+      <div id="services" class="services section">
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Our Services</h2>
+
+        <div class="services-grid">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/s1_11zon_11zon.webp" alt="" />
+            <h3>Digital Transformation</h3>
+            <p>
+              Modernizing enterprises with scalable and future-ready digital
+              ecosystems.
+            </p>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+            <img src="./Assets/s2_11zon_11zon.webp" alt="" />
+            <h3>Web & App Development</h3>
+            <p>
+              High-performance applications built with cutting-edge
+              technologies.
+            </p>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="./Assets/s3_11zon_11zon.webp" alt="" />
+            <h3>Enterprise Consulting</h3>
+            <p>
+              Strategic insights that drive operational excellence and growth.
+            </p>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/s4_11zon_11zon.webp" alt="" />
+            <h3>Cyber Security</h3>
+            <p>
+              Robust architecture designed to secure digital infrastructures.
+            </p>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+            <img src="./Assets/s5_11zon_11zon.webp" alt="" />
+            <h3>Cloud Solutions</h3>
+            <p>
+              Optimized cloud systems for flexibility, scalability, and
+              performance.
+            </p>
+          </div>
+
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="./Assets/s6_11zon (1)_11zon.webp" alt="" />
+            <h3>Data Analytics</h3>
+            <p>
+              Data-driven insights that fuel informed decision-making and
+              strategic planning.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= WHY CHOOSE US ================= -->
+      <div id="why-us" class="why section">
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Why Choose Us</h2>
+
+        <div class="why-grid">
+          <div class="why-box" data-aos="fade-up" data-aos-delay="100">
+            <h3>Expert Team</h3>
+            <p>Certified professionals delivering excellence.</p>
+            <span class="counter" data-target="120">0</span>+
+          </div>
+
+          <div class="why-box" data-aos="fade-up" data-aos-delay="150">
+            <h3>Scalable Systems</h3>
+            <p>Future-proof infrastructure design.</p>
+            <span class="counter" data-target="250">0</span>+
+          </div>
+
+          <div class="why-box" data-aos="fade-up" data-aos-delay="100">
+            <h3>Secure Architecture</h3>
+            <p>Security-first development methodology.</p>
+            <span class="counter" data-target="500">0</span>+
+          </div>
+
+          <div class="why-box" data-aos="fade-up" data-aos-delay="150">
+            <h3>24/7 Support</h3>
+            <p>Continuous monitoring & assistance.</p>
+            <span class="counter" data-target="365">0</span> Days
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PORTFOLIO ================= -->
+      <div id="portfolio" class="portfolio section">
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Our Projects</h2>
+
+        <div class="filter-buttons">
+          <button data-filter="all" class="active">All</button>
+          <button data-filter="web">Web</button>
+          <button data-filter="app">App</button>
+          <button data-filter="cloud">Cloud</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="project-card web" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr1_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">Web</span>
+              <h4 class="project-title">Enterprise Dashboard</h4>
+            </div>
+          </div>
+
+          <div class="project-card app" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr2_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">App</span>
+              <h4 class="project-title">FinTech App</h4>
+            </div>
+          </div>
+
+          <div class="project-card web" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr3_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">Web</span>
+              <h4 class="project-title">Corporate Website</h4>
+            </div>
+          </div>
+
+          <div class="project-card cloud" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr4_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">Cloud</span>
+              <h4 class="project-title">Cloud Platform</h4>
+            </div>
+          </div>
+
+          <div class="project-card web" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr5_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">Web</span>
+              <h4 class="project-title">Security System</h4>
+            </div>
+          </div>
+
+          <div class="project-card app" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr6_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">App</span>
+              <h4 class="project-title">SaaS Product</h4>
+            </div>
+          </div>
+
+          <div class="project-card web" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr7_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">Web</span>
+              <h4 class="project-title">AI Analytics Platform</h4>
+            </div>
+          </div>
+
+          <div class="project-card web" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr8_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">Web</span>
+              <h4 class="project-title">E-Commerce System</h4>
+            </div>
+          </div>
+
+          <div class="project-card web" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr9_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">Web</span>
+              <h4 class="project-title">HR Management Portal</h4>
+            </div>
+          </div>
+
+          <div class="project-card cloud" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr10_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">Cloud</span>
+              <h4 class="project-title">Blockchain Finance</h4>
+            </div>
+          </div>
+
+          <div class="project-card cloud" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr11_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">Cloud</span>
+              <h4 class="project-title">IoT Monitoring Dashboard</h4>
+            </div>
+          </div>
+
+          <div class="project-card app" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/pr12_11zon.webp" alt="" />
+            <div class="project-info">
+              <span class="project-category">App</span>
+              <h4 class="project-title">Mobile Banking App</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        /* COUNTER ANIMATION */
+
+        const counter = document.querySelectorAll(".counter");
+
+        counter.forEach((counter) => {
+          const updateCounter = () => {
+            const target = +counter.getAttribute("data-target");
+            const current = +counter.innerText;
+            const increment = target / 100;
+
+            if (current < target) {
+              counter.innerText = Math.ceil(current + increment);
+              setTimeout(updateCounter, 20);
+            } else {
+              counter.innerText = target;
+            }
+          };
+
+          updateCounter();
+        });
+      </script>
+
+      <script>
+        /* PORTFOLIO FILTER */
+
+        const buttons = document.querySelectorAll(".filter-buttons button");
+        const projects = document.querySelectorAll(".project-card");
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            document
+              .querySelector(".filter-buttons .active")
+              .classList.remove("active");
+            button.classList.add("active");
+
+            const filter = button.getAttribute("data-filter");
+
+            projects.forEach((project) => {
+              if (filter === "all" || project.classList.contains(filter)) {
+                project.style.display = "block";
+              } else {
+                project.style.display = "none";
+              }
+            });
+          });
+        });
+      </script>
+
+      <div id="testimonials" class="testimonials-section">
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">What Our Clients Say</h2>
+        <div class="testimonial-slider">
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100" >
+            <img src="./Assets/tm1.webp" alt="Client 1" />
+            <p>"Excellent service! Highly recommended."</p>
+            <div class="stars">★★★★★</div>
+            <h4>John Doe</h4>
+          </div>
+
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/tm2.webp" alt="Client 2" />
+            <p>"Professional team and great results."</p>
+            <div class="stars">★★★★☆</div>
+            <h4>Jane Smith</h4>
+          </div>
+
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/tm3.webp" alt="Client 3" />
+            <p>"Delivered more than expected."</p>
+            <div class="stars">★★★★★</div>
+            <h4>Michael Lee</h4>
+          </div>
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/tm4.webp" alt="Client 4" />
+            <p>"Prompt and efficient service."</p>
+            <div class="stars">★★★★☆</div>
+            <h4>Sarah Johnson</h4>
+          </div>
+        </div>
+      </div>
+      <!-- 
+      <script>
+        const slider = document.querySelector(".testimonial-slider");
+        let scrollAmount = 0;
+
+        function autoScroll() {
+          scrollAmount += 1;
+          if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+            scrollAmount = 0;
+          }
+          slider.scrollTo({
+            left: scrollAmount,
+            behavior: "smooth",
+          });
+        }
+        setInterval(autoScroll, 50);
+      </script> -->
+
+      <div id="team" class="team-section">
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Meet Our Team</h2>
+        <div class="team-container">
+          <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/t1_11zon_11zon (1).webp" alt="CEO" />
+            <h4>Sarah Williams</h4>
+            <p>CEO / Founder</p>
+            <div class="social-icons">
+              <a href="./error.html"><i class="fab fa-linkedin"></i></a>
+              <a href="./error.html"><i class="fab fa-twitter"></i></a>
+              <a href="./error.html"><i class="fab fa-instagram"></i></a>
+              <a href="./error.html"><i class="fab fa-dribbble"></i></a>
+            </div>
+          </div>
+
+          <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/t2_11zon_11zon (1).webp" alt="Lead Developer" />
+            <h4>James Brown</h4>
+            <p>Lead Developer</p>
+            <div class="social-icons">
+              <a href="./error.html"><i class="fab fa-github"></i></a>
+              <a href="./error.html"><i class="fab fa-linkedin"></i></a>
+              <a href="./error.html"><i class="fab fa-twitter"></i></a>
+              <a href="./error.html"><i class="fab fa-instagram"></i></a>
+              <a href="./error.html"><i class="fab fa-dribbble"></i></a>
+              <a href="./error.html"><i class="fab fa-behance"></i></a>
+            </div>
+          </div>
+
+          <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/t3_11zon_11zon (1).webp" alt="Marketing Head" />
+            <h4>Linda Green</h4>
+            <p>Marketing Head</p>
+            <div class="social-icons">
+              <a href="./error.html"><i class="fab fa-linkedin"></i></a>
+              <a href="./error.html"><i class="fab fa-twitter"></i></a>
+              <a href="./error.html"><i class="fab fa-instagram"></i></a>
+              <a href="./error.html"><i class="fab fa-dribbble"></i></a>
+              <a href="./error.html"><i class="fab fa-behance"></i></a>
+            </div>
+          </div>
+
+          <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="./Assets/t4_11zon_11zon (1).webp" alt="Designer" />
+            <h4>Tom Lee</h4>
+            <p>Designer</p>
+            <div class="social-icons">
+              <a href="./error.html"><i class="fab fa-linkedin"></i></a>
+              <a href="./error.html"><i class="fab fa-instagram"></i></a>
+              <a href="./error.html"><i class="fab fa-dribbble"></i></a>
+              <a href="./error.html"><i class="fab fa-behance"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="contact" class="contact-section">
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Get in Touch</h2>
+        <div class="contact-wrapper">
+          <!-- Left: Address / Info -->
+          <div class="contact-info">
+            <h2 data-aos="fade-right" data-aos-delay="100">Contact Us</h2>
+            <p data-aos="fade-right" data-aos-delay="100">
+              We’d love to hear from you. Reach out to us via the form or visit
+              us.
+            </p>
+
+            <div class="info-item">
+              <h4 data-aos="fade-right" data-aos-delay="100">Address</h4>
+              <p data-aos="fade-right" data-aos-delay="100">123 Golden Street, Mumbai, India</p>
+            </div>
+            <div class="info-item">
+              <h4 data-aos="fade-right" data-aos-delay="100">Email</h4>
+              <p data-aos="fade-right" data-aos-delay="100">info@yourcompany.com</p>
+            </div>
+            <div class="info-item">
+              <h4 data-aos="fade-right" data-aos-delay="100">Phone</h4>
+              <p data-aos="fade-right" data-aos-delay="100">+91 98765 43210</p>
+            </div>
+          </div>
+
+          <!-- Right: Contact Form -->
+          <div class="contact-form-container" data-aos="fade-left" data-aos-delay="100">
+            <form id="contact-form">
+              <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="subject"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  placeholder="Your Message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit">Send Message</button>
+              <p class="form-message" id="form-message"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const form = document.getElementById("contact-form");
+        const messageEl = document.getElementById("form-message");
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const subject = document.getElementById("subject").value.trim();
+          const message = document.getElementById("message").value.trim();
+
+          if (!name || !email || !subject || !message) {
+            messageEl.textContent = "Please fill in all fields.";
+            messageEl.style.color = "#ff5252";
+            return;
+          }
+
+          if (!validateEmail(email)) {
+            messageEl.textContent = "Please enter a valid email.";
+            messageEl.style.color = "#ff5252";
+            return;
+          }
+
+          messageEl.textContent = "Sending message...";
+          messageEl.style.color = "#ffd700";
+
+          setTimeout(() => {
+            messageEl.textContent = "Thank you! Your message has been sent.";
+            messageEl.style.color = "#00ff7f";
+            form.reset();
+          }, 1500);
+        });
+
+        function validateEmail(email) {
+          const re = /\S+@\S+\.\S+/;
+          return re.test(email);
+        }
+      </script>
+    </section>
+
+    <script>
+      /* Parallax Effect */
+
+      document.addEventListener("mousemove", (e) => {
+        const image = document.querySelector(".hero-image img");
+        const x = (window.innerWidth / 2 - e.pageX) / 40;
+        const y = (window.innerHeight / 2 - e.pageY) / 40;
+
+        image.style.transform = `translate(${x}px, ${y}px)`;
+      });
+
+      /* Button Ripple Effect */
+
+      document.querySelectorAll(".btn").forEach((button) => {
+        button.addEventListener("click", function (e) {
+          const circle = document.createElement("span");
+          const diameter = Math.max(this.clientWidth, this.clientHeight);
+          const radius = diameter / 2;
+
+          circle.style.width = circle.style.height = `${diameter}px`;
+          circle.style.left = `${e.clientX - this.offsetLeft - radius}px`;
+          circle.style.top = `${e.clientY - this.offsetTop - radius}px`;
+
+          circle.classList.add("ripple");
+
+          const ripple = this.querySelector(".ripple");
+          if (ripple) ripple.remove();
+
+          this.appendChild(circle);
+        });
+      });
+    </script>
+
+    <div class="scroll-indicator">
+      <svg width="60" height="60" viewBox="0 0 60 60">
+        <defs>
+          <linearGradient
+            id="scrollGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
+            <stop offset="0%" stop-color="#ff4d8d" />
+            <stop offset="100%" stop-color="#ff8a00" />
+          </linearGradient>
+        </defs>
+
+        <circle class="bg" cx="30" cy="30" r="26" />
+        <circle class="progress" cx="30" cy="30" r="26" />
+      </svg>
+      <div class="scroll-percent">0%</div>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div>
+          <!-- <img class="logo1" src="./Assets/Logo.webp" alt=""> -->
+          <h3 data-aos="fade-right" data-aos-delay="100">Stackly Real Estate Solutions</h3>
+          <p data-aos="fade-right" data-aos-delay="150">
+            Stackly Real Estate Solutions delivers premium property services by
+            combining market expertise, innovative technology, and data-driven
+            insights to help clients buy, sell, and invest with confidence in
+            today’s dynamic real estate market.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3 data-aos="fade-up" data-aos-delay="100">Quick Links</h3>
+          <a href="./error.html" data-aos="zoom-in" data-aos-delay="150">Home</a>
+          <a href="./error.html" data-aos="zoom-in" data-aos-delay="150">About Us</a>
+          <a href="./error.html" data-aos="zoom-in" data-aos-delay="150">Properties</a>
+          <a href="./error.html" data-aos="zoom-in" data-aos-delay="150">Projects</a>
+          <a href="./error.html" data-aos="zoom-in" data-aos-delay="150">Blog</a>
+          <a href="./error.html" data-aos="zoom-in" data-aos-delay="150">Contact</a>
+        </div>
+
+        <div class="footer-links">
+          <h3 data-aos="fade-up" data-aos-delay="100">Real Estate Services</h3>
+          <a href="./error.html" data-aos="zoom-in" data-aos-delay="150">Residential Properties</a>
+          <a href="./error.html" data-aos="zoom-in" data-aos-delay="150">Commercial Spaces</a>
+          <a href="./error.html" data-aos="zoom-in" data-aos-delay="150">Property Investment</a>
+          <a href="./error.html" data-aos="zoom-in" data-aos-delay="150">Property Management</a>
+        </div>
+
+        <div>
+          <h3 data-aos="fade-left" data-aos-delay="100">Stay Updated</h3>
+          <p data-aos="fade-left" data-aos-delay="150">
+            Receive the latest property listings, market trends, and investment
+            opportunities directly to your inbox.
+          </p>
+
+          <div class="subscribe" data-aos="fade-left" data-aos-delay="150">
+            <input type="email" placeholder="Your email address" />
+            <a href="./error.html">
+              <button>Subscribe</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Stackly Real Estate Solutions. All Rights Reserved.
+      </div>
+    </footer>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+      AOS.init({ once: true, duration: 1000, easing: "ease-out-cubic" });
+    </script>
+
+    <script>
+      const progressCircle = document.querySelector(
+        ".scroll-indicator .progress",
+      );
+      const percentText = document.querySelector(".scroll-percent");
+
+      const circumference = 2 * Math.PI * 26; // r = 26
+
+      function updateScrollProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+
+        const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+        const offset = circumference - scrollPercent * circumference;
+
+        progressCircle.style.strokeDashoffset = offset;
+
+        percentText.textContent = Math.round(scrollPercent * 100) + "%";
+      }
+
+      window.addEventListener("scroll", updateScrollProgress);
+      updateScrollProgress();
+    </script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

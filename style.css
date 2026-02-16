@@ -47,12 +47,13 @@ header {
 
 .login i {
   font-weight: 700;
-  background: radial-gradient(
-    circle at center,
-    #fff6c9 0%,
-    #ffd700 40%,
-    #d4a017 70%,
-    #8b6b00 100%
+   background: linear-gradient(
+    135deg,
+    #f5d77a 0%,
+    #e6b65c 25%,
+    #d4a017 50%,
+    #b8860b 75%,
+    #f5d77a 100%
   );
 
   -webkit-background-clip: text;
@@ -594,7 +595,7 @@ main {
 
 .about-image img {
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   border-radius: 10px;
 }
 
@@ -693,7 +694,8 @@ main {
   }
 
   .experience-badge {
-    right: 20px;
+    right: -15px;
+    padding: 10px 12px;
   }
 
   .about-stats {
@@ -976,35 +978,43 @@ main {
 .testimonials-section {
   background: black;
   color: #ffd700;
-  padding: 30px 5%;
+  padding: 60px 5%;
   text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.swiper {
   width: 100%;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
-.testimonial-slider {
-  display: flex;
-  gap: 30px;
-  scroll-behavior: smooth;
-  padding-bottom: 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
 .testimonial-card {
   background: #222;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 15px;
+  padding: 25px;
+  width: 100%;
+  max-width: 100%;
   text-align: center;
-  flex-shrink: 0;
-  position: relative; /* Required for ::after */
-  overflow: hidden; /* Keep shimmer inside card */
-  transition: transform 0.3s;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
 }
 
-/* Skew + shimmer pseudo-element */
+/* Hover lift */
+.testimonial-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Shimmer effect */
 .testimonial-card::after {
   content: "";
   position: absolute;
@@ -1019,31 +1029,12 @@ main {
     rgba(255, 215, 0, 0) 100%
   );
   transform: skewX(-20deg);
-  pointer-events: none;
-  transition: all 0.7s ease-in-out;
+  animation: shimmer 3s infinite;
 }
 
-/* Hover effect: slight tilt + move shimmer */
-.testimonial-card:hover {
-  transform: translateY(-10px);
-}
-
-.testimonial-card:hover::after {
-  left: 125%;
-}
-
-/* Optional: continuous shimmer without hover */
-@keyframes card-shimmer {
-  0% {
-    left: -75%;
-  }
-  100% {
-    left: 125%;
-  }
-}
-
-.testimonial-card::after {
-  animation: card-shimmer 3s infinite;
+@keyframes shimmer {
+  0% { left: -75%; }
+  100% { left: 125%; }
 }
 
 .testimonial-card img {
@@ -1052,155 +1043,216 @@ main {
   border-radius: 50%;
   margin-bottom: 15px;
 }
+
 .testimonial-card p {
   font-size: 1rem;
   margin-bottom: 10px;
 }
+
 .stars {
   color: #ffd700;
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 1050px) {
-  .testimonial-slider {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* Navigation buttons color */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffd700;
 }
-@media screen and (max-width: 540px) {
- .testimonial-slider {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .testimonial-card {
-  padding: 10px;
 
+.swiper-pagination-bullet {
+  background: #ffd700;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .testimonial-card {
+    max-width: 300px;
   }
 }
+
+@media (max-width: 768px) {
+  .testimonial-card {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    max-width: 100%;
+  }
+}
+
 
 /* ----------------------------------------------------------- */
 
+/* SECTION */
 .team-section {
-  background: black;
-  color: #ffd700;
-  padding: 30px 5%;
+  padding: 100px 5%;
   text-align: center;
-
-}
-
-.team-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-}
-.team-card {
-  background: #222;
-  padding: 20px;
-  border-radius: 12px;
-  transition:
-    transform 0.3s,
-    background 0.5s;
-  position: relative;
+  color: #ffd700;
   overflow: hidden;
 }
 
-.team-card {
-  background: #222;
-  padding: 20px;
-  border-radius: 12px;
-  transition:
-    transform 0.3s,
-    background 0.5s;
+.section-title {
+  font-size: 42px;
+  margin-bottom: 60px;
+}
+
+/* CAROUSEL */
+.carousel {
   position: relative;
-  overflow: hidden; /* keeps shimmer inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Skew + shimmer pseudo-element (reverse) */
-.team-card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 215, 0, 0) 0%,
-    rgba(255, 215, 0, 0.3) 50%,
-    rgba(255, 215, 0, 0) 100%
-  );
-  transform: skewX(25deg); /* reversed skew */
-  pointer-events: none;
-  transition: all 0.7s ease-in-out;
+.carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
 }
 
-/* Hover effect: lift + reverse skew */
-.team-card:hover {
-  transform: translateY(-10px) skewX(-5deg); /* opposite tilt */
+.carousel-track {
+  display: flex;
+  gap: 40px;
+  transition: transform 0.7s ease;
 }
 
-.team-card:hover::after {
-  left: 125%; /* shimmer slides across */
+/* CARD */
+.team-card {
+  flex: 0 0 300px;
+  background: linear-gradient(145deg, #111, #1c1c1c);
+  border-radius: 20px;
+  padding: 40px 25px;
+  text-align: center;
+  opacity: 0.4;
+  transform: scale(0.85);
+  transition: 0.5s ease;
 }
 
-/* Optional: continuous shimmer without hover */
-@keyframes team-card-shimmer {
-  0% {
-    left: -75%;
-  }
-  100% {
-    left: 125%;
-  }
+.team-card.active {
+  opacity: 1;
+  transform: scale(0.95);
+  box-shadow:
+    0 0 40px rgba(255,215,0,0.6),
+    0 0 80px rgba(255,215,0,0.2);
 }
 
-.team-card::after {
-  animation: team-card-shimmer 3s infinite;
-}
-
-.team-card:hover {
-  transform: translateY(-10px);
-}
 .team-card img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  margin-bottom: 15px;
-}
-.team-card h4 {
-  margin-top: 10px;
-  margin-bottom: 5px;
-  font-family: "Spectral", serif;
-}
-.team-card p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  font-family: "Playfair Display", serif;
-  font-family: "Josefin Slab", serif;
+  border: 4px solid #ffd700;
+  margin-bottom: 20px;
 }
 
-.team-card .social-icons {
+.team-card h4 {
+  margin-bottom: 8px;
+}
+
+.team-card p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* NAV */
+.nav {
+  background: transparent;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  font-size: 26px;
+  padding: 10px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav:hover {
+  background: #ffd700;
+  color: black;
+}
+
+/* SOCIAL */
+.social-icons {
+  margin-top: 15px;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   opacity: 0;
-  transition: opacity 0.3s;
-}
-.team-card:hover .social-icons {
-  opacity: 1;
-}
-.team-card .social-icons a {
-  color: #ffd700;
-  font-size: 1.2rem;
+  transform: translateY(15px);
+  transition: 0.4s ease;
 }
 
-@media screen and (max-width: 1050px) {
-  .team-container {
-    grid-template-columns: repeat(2, 1fr);
+.team-card.active .social-icons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.social-icons a {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffd700;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: #ffd700;
+  color: black;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+
+  .team-section {
+    padding: 70px 20px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 45px;
+  }
+
+  .carousel {
+    flex-direction: column;
+  }
+
+  .carousel-track {
+    gap: 20px;
+  }
+
+  .team-card {
+    flex: 0 0 85%;
+  }
+
+  .prev {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .next {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+  }
+
+  .nav {
+    font-size: 22px;
+    padding: 8px 14px;
   }
 }
-@media screen and (max-width: 540px) {
-  .team-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
+
+
 
 /* ----------------------------------------------------------- */
 
@@ -1400,8 +1452,27 @@ footer {
   overflow-x: hidden;
 }
 
+.div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* padding: 20px 10px; */
+  margin-bottom: 10px;
+}
+
+.div img {
+  width: 260px;
+  height: 50px;
+}
+
+@media screen and (max-width:450px) {
+  .div img {
+    width: 180px;
+    height: 40px;
+  }
+}
+
 .footer-container {
-  max-width: 1440px;
   margin: auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
@@ -1436,6 +1507,7 @@ footer {
   font-size: 16px;
   line-height: 1.7;
   color: #cfeeff;
+  text-align: justify;
 }
 
 /* ============================= */

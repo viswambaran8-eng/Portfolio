@@ -477,6 +477,7 @@ main {
 .btn-secondary {
   border: 1px solid #d4a017;
   color: #d4a017;
+  transition: 0.8 all ease-in-out;
 }
 
 .btn-secondary:hover {

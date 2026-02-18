@@ -1008,6 +1008,7 @@ main {
   position: relative;
   overflow: hidden;
   transition: 0.3s ease;
+  border: 4px #7a5c00 solid;
 }
 
 /* Hover lift */
